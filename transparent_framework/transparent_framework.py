@@ -12,7 +12,6 @@ from jobs import SparseMatrixFillerJob
 from jobs import NeighborhoodDataExportJob
 from jobs import RunRLTrainingJob
 from jobs import RunRLTestingJob
-from jobs import GridSearchJob
 from jobs import ExperimentDriver
 
 
