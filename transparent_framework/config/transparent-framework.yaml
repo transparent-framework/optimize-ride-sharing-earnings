@@ -1,0 +1,106 @@
+app:
+    app_name: "Transparent-Framework"
+    app_logging_level: 'INFO'
+    app_random_seed: 0
+
+    # DIRS STRUCTURE
+    ROOT_DIR: "/transparent-framework/"
+    DATA_DIR: "/data/"
+
+jobs:
+    job_list:
+        # - "create_city_state"
+        # - "build_regression_models"
+        # - "fill_sparse_matrices"
+        # - "export_neighborhood_data"
+        - "run_experiments"
+        # - "run_rl_training"
+        # - "run_rl_testing"
+
+experiments:
+    expt_list:
+        - "experiment_00"
+        # - "experiment_01"
+        # - "experiment_02"
+        # - "experiment_03"
+        # - "experiment_04"
+        # - "experiment_05"
+        # - "experiment_06"
+        # - "experiment_07"
+        # - "experiment_08"
+
+city_state_creator:
+    start_time: "2015-09-02 00:00:00" 
+    end_time: "2015-09-08 23:59:59"
+    time_slice_duration: 5
+    time_unit_duration: 5
+    business_days:
+        - "Monday" 
+
+        # - "Tuesday"
+        #
+        # - "Wednesday"
+        #
+        # - "Thursday"
+        #
+        # - "Friday"
+        #
+        # - "Saturday"
+        #
+        # - "Sunday"
+    business_hours_start: 0
+    business_hours_end: 23
+
+regression_models:
+    # - year: "2015"
+    #   month: "September" 
+    #   weekday: "Sunday"
+
+    - year: "2015"
+      month: "September" 
+      weekday: "Monday"
+
+    # - year: "2015"
+    #   month: "September" 
+    #   weekday: "Tuesday"
+
+    # - year: "2015"
+    #   month: "September" 
+    #   weekday: "Wednesday"
+
+    # - year: "2015"
+    #   month: "September" 
+    #   weekday: "Thursday"
+
+    # - year: "2015"
+    #   month: "September" 
+    #   weekday: "Friday"
+
+    # - year: "2015"
+    #   month: "September" 
+    #   weekday: "Saturday"
+
+RL_parameters:
+    city_states_filename: "city_states.dill"
+    experiment: "expt"
+    objective: "revenue"
+    # objective: "pickups"
+    allow_coordination: True 
+    best_model_filename: False 
+    best_episode_filename: False
+    training_tracker_filename: False
+    discount_factor: 0.99
+    learning_rate: 0.01
+    ind_episodes: 160
+    reb_episodes: 60
+    num_episodes: 200
+    num_drivers: 6000
+    driver_distribution: "uniform"
+    num_strategic_drivers: 6000
+    imbalance_threshold: 2
+    exp_decay_multiplier: 3
+
+Model_testing:
+    experiment: "expt_00_test"
+    model_filename: "expt_00.dill"
+    city_states_filename: "city_states.dill"
