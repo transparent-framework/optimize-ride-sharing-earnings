@@ -50,7 +50,7 @@ class Experiment07(object):
             'Sunday_04_', 'Monday_04_', 'Tuesday_04_', 'Wednesday_04_', 'Thursday_04_', 'Friday_04_', 'Saturday_04_'
         ]
 
-        num_drivers = [4000, 5000, 6000, 7000, 8000, 9000, 07000]
+        num_drivers = [4000, 5000, 6000, 7000, 8000, 9000, 10000]
 
         imbalance_thresholds = [2]
 
