@@ -1,7 +1,6 @@
 """
 This class implements experiment_07
 We create and save one model for first occurance of each day of the week in month of September
-for each imbalance threshold value
 for each num_drivers value
 """
 
