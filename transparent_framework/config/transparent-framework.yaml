@@ -4,11 +4,11 @@ app:
     app_random_seed: 0
 
     # DIRS STRUCTURE
-    ROOT_DIR: "/transparent-framework/"
-    DATA_DIR: "/data/"
+    ROOT_DIR: "/transparent-framework/"             # Root directory of the framework.
+    DATA_DIR: "/data/"                              # Data directory of the framework.
 
 jobs:
-    job_list:
+    job_list:                                       # If not running an experiment, you can run individual training, testing job.
         # - "create_city_state"
         # - "build_regression_models"
         # - "fill_sparse_matrices"
@@ -17,9 +17,9 @@ jobs:
         # - "run_rl_training"
         # - "run_rl_testing"
 
-experiments:
+experiments:                                        # Experiments to be conducted.
     expt_list:
-        - "experiment_00"
+        - "experiment_00"                   
         # - "experiment_01"
         # - "experiment_02"
         # - "experiment_03"
@@ -30,10 +30,10 @@ experiments:
         # - "experiment_08"
 
 city_state_creator:
-    start_time: "2015-09-02 00:00:00" 
-    end_time: "2015-09-08 23:59:59"
-    time_slice_duration: 5
-    time_unit_duration: 5
+    start_time: "2015-09-02 00:00:00"               # Start time of the city states file.
+    end_time: "2015-09-08 23:59:59"                 # End time of the city states file.
+    time_slice_duration: 5                          # Each time slice duration (keep = time slice duration for this work).
+    time_unit_duration: 5                           # Each time unit (5 mins = 288 time slices in a 24 hour day).
     business_days:
         - "Monday" 
 
@@ -48,10 +48,10 @@ city_state_creator:
         # - "Saturday"
         #
         # - "Sunday"
-    business_hours_start: 0
-    business_hours_end: 23
+    business_hours_start: 0                     # Used to create a city states file over a week but for example, only 8-5 each day.
+    business_hours_end: 23          
 
-regression_models:
+regression_models:                              # Create Stata-usable dataset from the raw data for linear regression models.
     # - year: "2015"
     #   month: "September" 
     #   weekday: "Sunday"
@@ -81,26 +81,30 @@ regression_models:
     #   weekday: "Saturday"
 
 RL_parameters:
-    city_states_filename: "city_states.dill"
-    experiment: "expt"
-    objective: "revenue"
-    # objective: "pickups"
-    allow_coordination: True 
-    best_model_filename: False 
-    best_episode_filename: False
-    training_tracker_filename: False
+    experiment: "expt"                          # Experiment name if running a training job.
+    # RL training parameters
+    city_states_filename: "city_states.dill"    # City states file used to train the model.
+    objective: "revenue"                        # Set to 'pickups' if you wish to optimize for demand fulfillment.
+    allow_coordination: True                    # Set to False if to disable coordinated learning.
     discount_factor: 0.99
     learning_rate: 0.01
     ind_episodes: 160
     reb_episodes: 60
     num_episodes: 200
+    # Driver section.
     num_drivers: 6000
-    driver_distribution: "uniform"
-    num_strategic_drivers: 6000
-    imbalance_threshold: 2
-    exp_decay_multiplier: 3
+    num_strategic_drivers: 6000                 # If less than total drivers, the remaining drivers are naive.
+    driver_distribution: "uniform"              # Uniform distribution at time t=0
+    imbalance_threshold: 2                      # Imbalance threhsold used during rebalancing
+    exp_decay_multiplier: 3                     # Decay exponent for exploration rate
+    # Output section.
+    # Provide the filenames if you wish to output the corresponding 
+    # model, episode or overall training process details.
+    best_model_filename: False 
+    best_episode_filename: False
+    training_tracker_filename: False
 
 Model_testing:
-    experiment: "expt_00_test"
-    model_filename: "expt_00.dill"
-    city_states_filename: "city_states.dill"
+    experiment: "expt_00_test"                  # Experiment name if running a training job.
+    model_filename: "expt_00.dill"              # Model to use for deployment.
+    city_states_filename: "city_states.dill"    # City states file to deploy the model on.
