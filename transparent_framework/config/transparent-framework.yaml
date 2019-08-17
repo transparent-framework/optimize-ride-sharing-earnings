@@ -92,8 +92,8 @@ RL_parameters:
     reb_episodes: 60
     num_episodes: 200
     # Driver section.
-    num_drivers: 6000
-    num_strategic_drivers: 6000                 # If less than total drivers, the remaining drivers are naive.
+    num_drivers: 5000
+    num_strategic_drivers: 5000                 # If less than total drivers, the remaining drivers are naive.
     driver_distribution: "uniform"              # Uniform distribution at time t=0
     imbalance_threshold: 2                      # Imbalance threhsold used during rebalancing
     exp_decay_multiplier: 3                     # Decay exponent for exploration rate
