@@ -17,6 +17,6 @@ Before running jobs or experiments, you will need to run all the initialization 
 in order to create all the relevant data structures required during the training of framework or experiments.
 
 A more detailed README on instructions would be included after the reviewing process is finished, because it requires using
-scripts and hosting supplemental datasets that may potentially break the anonymity required for a double-blind submission.
+scripts that may potentially break the anonymity required for a double-blind submission.
 
 Cheers!
