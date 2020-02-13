@@ -1,1 +1,11 @@
+app:
+    app_name: "GymNycYellowTaxi"
+    app_logging_level: 'INFO'
 
+    ROOT_DIR: "/learn-to-earn-framework/"
+    DATA_DIR: "/data/"
+
+env_parameters:
+    city_states_filename: "city_states.dill"
+    num_drivers: 5000
+    driver_distribution: "uniform"
