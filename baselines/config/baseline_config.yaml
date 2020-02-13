@@ -1,0 +1,50 @@
+app:
+    app_name: "Baselines"
+    app_logging_level: 'INFO'
+
+    ROOT_DIR: "/baselines/"
+    DATA_DIR: "/data/"
+
+env_parameters:
+    city_states_filename: "city_states.dill"
+    num_drivers: 5000
+    driver_distribution: "uniform"
+
+jobs:
+    job_list:
+        - "run_baselines"
+
+baselines:
+    baseline_list:
+        - "cDQN"
+        - "cA2C"
+        - "A2C"
+
+cDQN_parameters:
+    learning_rate: 0.001
+    gamma: 0.99
+    max_episodes: 100
+    max_timesteps: 287
+    max_update_steps: 3000
+    batch_size: 4000
+    buffer_size: 100000
+
+cA2C_parameters:
+    learning_rate: 0.0001
+    gamma: 0.99
+    tau: 0.01
+    max_episodes: 100
+    max_timesteps: 287
+    max_update_steps: 3000
+    batch_size: 4000
+    buffer_size: 100000
+
+A2C_parameters:
+    learning_rate: 0.0001
+    gamma: 0.99
+    tau: 0.01
+    max_episodes: 100
+    max_timesteps: 287
+    max_update_steps: 1
+    batch_size: 251 
+    buffer_size: 251 
