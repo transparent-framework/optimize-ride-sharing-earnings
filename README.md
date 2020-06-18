@@ -1,3 +1,14 @@
+### Visualization videos
+
+#### Degree of coordination evolution
+[video](https://github.com/transparent-framework/optimize-ride-sharing-earnings/blob/master/data/coordination_probability.mp4?raw=true)
+
+#### Coordinated wait action evolution
+[video](https://github.com/transparent-framework/optimize-ride-sharing-earnings/blob/master/data/wait_probability.mp4?raw=true)
+
+#### Popular relocation zones during coordination
+[video](https://github.com/transparent-framework/optimize-ride-sharing-earnings/blob/master/data/relocation_probability.mp4?raw=true)
+
 ### Instructions to use this framework
 
 #### Step 1: 
